@@ -1,7 +1,13 @@
 import { fetchCharacters } from "../../index.js";
-export const searchBarFunction = (input) => {
-  input.addEventListener("input", (event) => {
-    console.log(event.target.value);
-    fetchCharacters(event.target.value);
+import { createCharacterCard } from "../card/card.js";
+
+export const searchBarFunction = (input, cardContainer, index) => {
+  input.addEventListener("input", async (event) => {
+    const data = await fetchCharacters(event.target.value);
+    console.log(data);
+    cardContainer.innerHTML = "";
+    data.results.forEach((character) => {
+      cardContainer.append(createCharacterCard(character));
+    });
   });
 };
