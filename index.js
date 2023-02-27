@@ -1,3 +1,4 @@
+import { searchBar } from "./components/search-bar/search-bar.js";
 //imports
 import { createCharacterCard } from "./components/card/card.js";
 
@@ -14,6 +15,9 @@ const pagination = document.querySelector('[data-js="pagination"]');
 // States
 const maxPage = 1;
 const page = 1;
+const searchQuery = "";
+
+searchBar(searchBar);
 
 // functions
 export async function fetchCharacters(searchQuery) {
