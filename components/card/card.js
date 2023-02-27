@@ -24,6 +24,5 @@ export function createCharacterCard(character) {
     </dl>
   </div>
   `;
-  cardContainer.append(list);
-  return cardContainer;
+  return list;
 }

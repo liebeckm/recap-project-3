@@ -1,6 +1,7 @@
-import { fetchCharacter } from "../../index.js";
+import { fetchCharacters } from "../../index.js";
 export const searchBarFunction = (input) => {
   input.addEventListener("input", (event) => {
-    fetchCharacter(event.target.value);
+    console.log(event.target.value);
+    fetchCharacters(event.target.value);
   });
 };
