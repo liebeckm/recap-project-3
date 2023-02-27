@@ -2,32 +2,32 @@ export function createPagination(
   nextButton,
   prevButton,
   pagination,
-  maxPage,
-  currentPage
+  currentPage,
+  showCharacter
 ) {
-  numPages(maxPage, 5);
-
+  //numPages(maxPage, 5);
+  pagination.textContent = currentPage + "/" + 42;
   prevButton.addEventListener("click", () => {
     if (currentPage > 1) {
       currentPage--;
       //changePage(currentPage);
-      console.log(currentPage);
+      showCharacter(currentPage);
     }
-    pagination.textContent = currentPage + "/" + maxPage;
+    pagination.textContent = currentPage + "/" + 42;
   });
 
   nextButton.addEventListener("click", () => {
-    if (currentPage < numPages(maxPage, 5)) {
+    if (currentPage < 42) {
       currentPage++;
       //changePage(currentPage);
-      console.log(currentPage);
+      showCharacter(currentPage);
     }
-    pagination.textContent = currentPage + "/" + maxPage;
+    pagination.textContent = currentPage + "/" + 42;
   });
 
-  function numPages(maxPage, pageCount) {
-    return Math.ceil(maxPage / pageCount);
-  }
-
   return currentPage;
+}
+
+export function numPages(maxPage, coutOfPages) {
+  return Math.ceil(maxPage / coutOfPages);
 }
