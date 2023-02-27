@@ -1,3 +1,5 @@
+const cardContainer = document.querySelector('[data-js="card-container"]');
+
 export function createCharacterCard(character) {
   const list = document.createElement("li");
   list.classList.add("card");
@@ -22,13 +24,6 @@ export function createCharacterCard(character) {
     </dl>
   </div>
   `;
-
   cardContainer.append(list);
+  return cardContainer;
 }
-
-createCharacterCard();
-
-// HINT: go to the docs and look where you can find all the information in the
-// character objects you will receive from the API.
-// Think about which input parameters this function will need.
-// The function finally returns the created li HTML element.
