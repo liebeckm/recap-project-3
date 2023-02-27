@@ -1,6 +1,6 @@
+import { createPagination } from "./components/nav-pagination/nav-pagination.js";
 import { searchBarFunction } from "./components/search-bar/search-bar.js";
 //imports
-import { createCharacterCard } from "./components/card/card.js";
 
 import { createPagination } from "./components/nav-pagination/nav-pagination.js";
 const cardContainer = document.querySelector('[data-js="card-container"]');
@@ -20,8 +20,6 @@ page = createPagination(nextButton, prevButton, pagination, maxPage, page);
 console.log(page);
 const searchQuery = "";
 
-searchBarFunction(searchBar);
-
 // functions
 export async function fetchCharacters(searchQuery) {
   const response = await fetch(
@@ -31,12 +29,4 @@ export async function fetchCharacters(searchQuery) {
   return data;
 }
 
-async function showCharacter() {
-  const data = await fetchCharacters("");
-  console.log(data);
-  cardContainer.innerHTML = "";
-  data.results.forEach((character) => {
-    cardContainer.append(createCharacterCard(character));
-  });
-}
-showCharacter();
+searchBarFunction(searchBar, cardContainer);
